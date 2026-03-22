@@ -36,7 +36,7 @@ fi
 # Start backup
 log_message "Starting PostgreSQL backup for database: $DB_NAME"
 
-pg_dump -U "$DB_USER" "$DB_NAME" > "$BACKUP_FILE"
+sudo -u "$DB_USER" pg_dump "$DB_NAME" > "$BACKUP_FILE"
 
 # Compress the backup file
 gzip "$BACKUP_FILE"
